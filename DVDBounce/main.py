@@ -4,15 +4,13 @@ import random
 # Pygame start
 pygame.init()
 
-
-
 # Ustawienia okna
 screen = pygame.display.set_mode((0, 0), pygame.FULLSCREEN)
 pygame.display.set_caption("DVDBounce")
 HEIGHT = 1080
 WIDTH = 1920
 
-# Wczytuje i skaluje logo
+# Wczytuje i laduje logo
 dvd_logo = pygame.image.load("Assets/IMG/DVD_logo.png")
 logo_width, logo_height = 264, 116
 dvd_logo = pygame.transform.scale(dvd_logo, (logo_width, logo_height))
@@ -26,7 +24,7 @@ x, y = random.randint(0, WIDTH - logo_width), random.randint(0, HEIGHT - logo_he
 speed_x, speed_y = 4, 4
 color = random_color()
 
-# Pętla
+# Petla
 running = True
 clock = pygame.time.Clock()
 
@@ -37,6 +35,9 @@ while running:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             running = False
+        elif event.type == pygame.KEYDOWN:
+            if event.key == pygame.K_ESCAPE:
+                running = False
     
     # Aktualizacja pozycji
     x += speed_x
