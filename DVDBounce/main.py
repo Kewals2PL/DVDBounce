@@ -10,7 +10,10 @@ pygame.display.set_caption("DVDBounce")
 HEIGHT = 1080
 WIDTH = 1920
 
-# Wczytuje i laduje logo
+# "Wylacz" kursor
+pygame.mouse.set_visible(False)
+
+# Wczytuje i laduje obraz
 dvd_logo = pygame.image.load("Assets/IMG/DVD_logo.png")
 logo_width, logo_height = 264, 116
 dvd_logo = pygame.transform.scale(dvd_logo, (logo_width, logo_height))
@@ -19,7 +22,7 @@ dvd_logo = pygame.transform.scale(dvd_logo, (logo_width, logo_height))
 def random_color():
     return random.randint(50, 255), random.randint(50, 255), random.randint(50, 255)
 
-# Inicjalizacja pozycji i prędkości
+# Pozycja i prędkość
 x, y = random.randint(0, WIDTH - logo_width), random.randint(0, HEIGHT - logo_height)
 speed_x, speed_y = 4, 4
 color = random_color()
